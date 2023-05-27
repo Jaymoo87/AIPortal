@@ -2,21 +2,21 @@ import React, { useState, useEffect } from 'react';
 import { FaPlus, FaArrowRight } from 'react-icons/fa';
 
 const GPT = () => {
-  const [value, setValue] = useState<any>(null);
+  const [value, setValue] = useState<string>('');
   // eslint-disable-next-line no-unused-vars
-  const [message, setMessage] = useState<any>(null);
+  const [message, setMessage] = useState<any>('');
   const [previousChats, setPreviousChats] = useState<any>([]);
-  const [currentTitle, setCurrenTitle] = useState(null);
+  const [currentTitle, setCurrenTitle] = useState('');
 
   const createNewChat = () => {
-    setMessage(null);
+    setMessage('');
     setValue('');
-    setCurrenTitle(null);
+    setCurrenTitle('');
   };
 
   const handleClick = (uTitle: any) => {
     setCurrenTitle(uTitle);
-    setMessage(null);
+    setMessage('');
     setValue('');
   };
 
@@ -31,8 +31,9 @@ const GPT = () => {
       }),
     };
     try {
-      const res = await fetch('http://localhost:8000/completions', options);
+      const res = await fetch('/api/gpt', options);
       const data = await res.json();
+      console.log(data);
       setMessage(data.choices[0].message);
     } catch (error) {
       console.log(error);
@@ -41,6 +42,9 @@ const GPT = () => {
 
   useEffect(() => {
     console.log(currentTitle, value, message);
+    if (!value) {
+      setValue('');
+    }
 
     if (!currentTitle && value && message) {
       setCurrenTitle(value);
@@ -72,7 +76,7 @@ const GPT = () => {
           <FaPlus /> New Chat
         </button>
         <ul className="history">
-          {uniqueTitles?.map((uTitle, index) => (
+          {uniqueTitles?.map((uTitle: any, index) => (
             <li onClick={handleClick} key={index}>
               {uTitle}
             </li>
@@ -95,7 +99,7 @@ const GPT = () => {
         <div className="bottom-section">
           <div className="input-container">
             <input value={value} onChange={(e) => setValue(e.target.value)} />
-            <div id="submit" className="bg-blue-400" onClick={getMessages}>
+            <div id="submit" onClick={getMessages}>
               <FaArrowRight />
             </div>
           </div>

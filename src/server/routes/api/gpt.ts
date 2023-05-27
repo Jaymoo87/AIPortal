@@ -1,12 +1,14 @@
 import express, { Router } from 'express';
 
+import config from '../../config';
+
 const gptRouter = Router();
 
-gptRouter.post('/completions', async (req, res) => {
+gptRouter.post('/', async (req, res) => {
   const options = {
     method: 'POST',
     headers: {
-      Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+      Authorization: `Bearer ${config.openAI.API_KEY}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
