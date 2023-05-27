@@ -1,31 +1,19 @@
-import * as React from 'react';
-import { useState, useEffect } from 'react';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import GPT from './pages/GPT';
+import Home from './pages/Home';
 
-import Greeting from './Greeting';
+type Props = {};
 
-/* HOOK REACT EXAMPLE */
-const App = (props: AppProps) => {
-  const [isDark, setIsDark] = useState<boolean>(false);
-
-  const handleToggle = () => {
-    if (isDark) {
-      document.body.classList.remove('dark');
-      // document.body.classList = "bg-slate-100";
-    } else {
-      document.body.classList.add('dark');
-    }
-    setIsDark(!isDark);
-  };
-
+const App = (props: Props) => {
   return (
-    <main>
-      <div>
-        <button className="p-2 m-4 text-xl bg-indigo-600 rounded-lg">Test TW button</button>
-      </div>
-    </main>
+    <BrowserRouter>
+      <Routes>
+        <Route path="" element={<Home />}></Route>
+        <Route path="/gpt" element={<GPT />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 };
-
-interface AppProps {}
 
 export default App;
