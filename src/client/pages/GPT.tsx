@@ -14,7 +14,7 @@ const GPT = () => {
     setCurrenTitle(null);
   };
 
-  const handleClick = (uTitle) => {
+  const handleClick = (uTitle: any) => {
     setCurrenTitle(uTitle);
     setMessage(null);
     setValue('');
@@ -46,7 +46,7 @@ const GPT = () => {
       setCurrenTitle(value);
     }
     if (currentTitle && value && message) {
-      setPreviousChats((prevChats) => [
+      setPreviousChats((prevChats: any) => [
         ...prevChats,
         {
           title: currentTitle,
@@ -62,8 +62,8 @@ const GPT = () => {
     }
   }, [message, currentTitle]);
 
-  const currentChat = previousChats.filter((pc) => pc.title === currentTitle);
-  const uniqueTitles = Array.from(new Set(previousChats.map((pc) => pc.title)));
+  const currentChat = previousChats.filter((pc: any) => pc.title === currentTitle);
+  const uniqueTitles = Array.from(new Set(previousChats.map((pc: any) => pc.title)));
 
   return (
     <div className="app">
@@ -85,7 +85,7 @@ const GPT = () => {
       <section className="main">
         {!currentTitle && <h1>Just inGPT</h1>}
         <ul className="feed">
-          {currentChat.map((chatMessage, index) => (
+          {currentChat.map((chatMessage: any, index: number) => (
             <li key={index}>
               <p className="role">{chatMessage.role}</p>
               <p>{chatMessage.content}</p>
@@ -95,7 +95,7 @@ const GPT = () => {
         <div className="bottom-section">
           <div className="input-container">
             <input value={value} onChange={(e) => setValue(e.target.value)} />
-            <div id="submit" onClick={getMessages}>
+            <div id="submit" className="bg-blue-400" onClick={getMessages}>
               <FaArrowRight />
             </div>
           </div>
