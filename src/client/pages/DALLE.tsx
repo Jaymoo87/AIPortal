@@ -10,12 +10,12 @@ const DALLE = (props: Props) => {
   ];
 
   return (
-    <div className="dalle-app">
+    <div className="w-full h-full dalle-app">
       <section className="search-section">
         <p>
           Start with detailed description <span className="surprise">surprise me</span>
         </p>
-        <div className="input-container">
+        <div className="dalle-input-container">
           <input placeholder="a surprising image with some flair" />
           <button>Generate</button>
         </div>

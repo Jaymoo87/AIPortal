@@ -54,10 +54,17 @@ input:focus {
   padding: 15px 0;
   cursor: pointer;
 }
-.app,
+
+.app {
+  background-color: #343541;
+  display: flex;
+}
+
 .dalle-app {
   background-color: #343541;
   display: flex;
+  justify-content: center;
+  flex-direction: row;
 }
 
 .side-bar {
@@ -130,4 +137,50 @@ input:focus {
   bottom: 10px;
   right: 0px;
   cursor: pointer;
+}
+
+.surprise {
+  background-color: #ececf1;
+  color: #000;
+  border-radius: 4px;
+  font-weight: 600;
+  margin: 0 0 2px 12px;
+  padding: 4px 12px;
+}
+
+.dalle-input-container {
+  width: 100%;
+  display: flex;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 82, 0.15);
+}
+
+.dalle-input-container input {
+  border: none;
+  padding: 13px 14px;
+  box-sizing: border-box;
+  outline: none;
+  font-size: 15px;
+  width: 90%;
+  font-weight: 200;
+}
+
+.dalle-input-container input::placeholder {
+  color: #cacaca;
+  font-weight: 200;
+}
+
+.dalle-input-container button {
+  width: 10%;
+  border: none;
+  border-left: 1px #cacaca solid;
+  background-color: #fff;
+  color: #777;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.dalle-input-container button:active {
+  background-color: #cacaca;
 }
