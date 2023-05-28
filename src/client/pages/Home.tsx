@@ -7,10 +7,10 @@ const Home = (props: Props) => {
   return (
     <>
       <Link to="/gpt">
-        <button className="w-1/3 bg-blue-300 ">GPT</button>
+        <button className="w-1/3 bg-gray-900 ">GPT</button>
       </Link>
       <Link to="/dalle">
-        <button className="w-1/3 bg-blue-300 ">DALL-E</button>
+        <button className="w-1/3 bg-gray-800 ">DALL-E</button>
       </Link>
     </>
   );

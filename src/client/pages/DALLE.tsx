@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import config from '../../server/config';
+import { FaArrowRight } from 'react-icons/fa';
 
 type Props = {};
 
@@ -45,7 +46,41 @@ const DALLE = (props: Props) => {
   };
 
   return (
-    <div className="w-full h-full dalle-app">
+    <>
+      <div className="app">
+        <section className="side-bar">
+          <ul className="history">
+            <li>previous pics</li>
+          </ul>
+          <nav>
+            <p>Made by Justin</p>
+          </nav>
+        </section>
+        <section className="main">
+          <section className="image-section">
+            {images?.map((img: any, index: number) => (
+              <img src={img.url} key={`image-key-${index}`} alt={`Generated Image of ${value}`} />
+            ))}
+          </section>
+          <div className="bottom-section">
+            <div className="input-container">
+              <input
+                value={value}
+                onChange={(e) => setValue(e.target.value)}
+                placeholder="a surprising image with some flair"
+              />
+              <span onClick={surpriseMe} className="surprise">
+                surprise me
+              </span>
+              <div id="submit" onClick={getImages}>
+                <FaArrowRight />
+              </div>
+            </div>
+            <p className="info">DALL-E sample testing</p>
+          </div>
+        </section>
+      </div>
+      {/* <div className="w-full h-full dalle-app">
       <section className="search-section">
         <p>
           Start with detailed description{' '}
@@ -68,7 +103,8 @@ const DALLE = (props: Props) => {
           <img src={img.url} key={`image-key-${index}`} alt={`Generated Image of ${value}`} />
         ))}
       </section>
-    </div>
+    </div></> */}
+    </>
   );
 };
 
