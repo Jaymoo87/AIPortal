@@ -87,7 +87,7 @@ const GPT = () => {
         </nav>
       </section>
       <section className="main">
-        {!currentTitle && <h1>Just inGPT</h1>}
+        <h1 className="text-xl font-extrabold">Just inGPT</h1>
         <ul className="feed">
           {currentChat.map((chatMessage: any, index: number) => (
             <li key={index}>
