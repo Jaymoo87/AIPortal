@@ -1,12 +1,12 @@
 import * as express from 'express';
-// import cors from 'cors';
 import path from 'path';
+const cors = require('cors');
 
 import routes from './routes';
 
 const app = express();
 
-// app.use(cors());
+app.use(cors());
 app.use(express.static('public'));
 app.use(express.json());
 app.use(routes);

@@ -146,6 +146,15 @@ input:focus {
   font-weight: 600;
   margin: 0 0 2px 12px;
   padding: 4px 12px;
+  cursor: pointer;
+}
+
+.search-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 300px;
 }
 
 .dalle-input-container {
@@ -183,4 +192,25 @@ input:focus {
 
 .dalle-input-container button:active {
   background-color: #cacaca;
+}
+
+.image-section {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.image-section img {
+  margin: 1px;
+  min-width: 250px;
+  max-width: 33%;
+  flex-grow: 1;
+}
+
+@media (max-width: 556px) {
+  .image-section img {
+    max-width: 100%;
+  }
 }
