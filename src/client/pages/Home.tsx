@@ -12,6 +12,9 @@ const Home = (props: Props) => {
       <Link to="/dalle">
         <button className="w-1/3 bg-gray-800 ">JALL-E</button>
       </Link>
+      <Link to="/sql">
+        <button className="w-1/3 bg-gray-800 ">Just inSQL</button>
+      </Link>
     </>
   );
 };

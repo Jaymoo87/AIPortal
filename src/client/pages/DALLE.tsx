@@ -98,23 +98,28 @@ const DALLE = (props: Props) => {
 
   return (
     <>
-      <div className="app">
-        <section className="side-bar">
-          <ul className="history">
-            <li>previous pics</li>
+      <div className="flex ">
+        <section className=" bg-[#202123] h-[100vh] w-[244px] flex flex-col justify-between">
+          <ul className="h-full p-3 m-3">
+            <li className="py-4 list-none cursor-pointer">previous pics</li>
           </ul>
           <nav>
-            <p>Made by Justin</p>
+            <p>Made by Justin Murrah</p>
           </nav>
         </section>
-        <section className="main">
+        <section className="w-full h-[100vh] flex flex-col  items-center text-center bg-[#343541]">
           <h1 className="text-xl font-extrabold">JALL-E</h1>
-          <section className="image-section">
+          <section className="p-[100px] w-full overflow-scroll flex overflow-x-hidden flex-wrap items-center justify-center">
             {images?.map((img: any, index: number) => (
-              <img src={img.url} key={`image-key-${index}`} alt={`Generated Image of ${value}`} />
+              <img
+                src={img.url}
+                key={`image-key-${index}`}
+                alt={`Generated Image of ${value}`}
+                className="m-5 rounded-md shadow-lg min-w-[256px] max-w-[33%] max-h-[1024px]  flex-grow"
+              />
             ))}
           </section>
-          <div className="bottom-section">
+          <div className="flex flex-col items-center justify-center w-full">
             <span onClick={surpriseMe} className="mb-2 surprise">
               surprise me
             </span>

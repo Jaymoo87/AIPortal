@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { FaPlus, FaArrowRight } from 'react-icons/fa';
+import { FaArrowRight } from 'react-icons/fa';
 
 const GPT = () => {
   const [value, setValue] = useState<string>('');
-  // eslint-disable-next-line no-unused-vars
+
   const [message, setMessage] = useState<any>('');
   const [previousChats, setPreviousChats] = useState<any>([]);
   const [currentTitle, setCurrenTitle] = useState('');
@@ -72,9 +72,7 @@ const GPT = () => {
   return (
     <div className="app">
       <section className="side-bar">
-        <button onClick={createNewChat}>
-          <FaPlus /> New Chat
-        </button>
+        <button onClick={createNewChat}>New Chat</button>
         <ul className="history">
           {uniqueTitles?.map((uTitle: any, index) => (
             <li onClick={handleClick} key={index}>
