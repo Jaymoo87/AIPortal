@@ -1,12 +1,21 @@
 import React from 'react';
 import MessageDisplay from '../components/MessageDisplay';
 
-type Props = {};
+interface UserMessage {
+  role: string;
+  content: string;
+}
 
-const MessagesDisplay = (props: Props) => {
+type MessageDisplayProps = {
+  userMessages: UserMessage[];
+};
+
+const MessagesDisplay = ({ userMessages }: MessageDisplayProps) => {
   return (
     <div className="messages-display">
-      <MessageDisplay />
+      {userMessages.map((userMessage, index) => (
+        <MessageDisplay message={userMessage} key={index} />
+      ))}
     </div>
   );
 };

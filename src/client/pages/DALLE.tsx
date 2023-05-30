@@ -2,6 +2,7 @@ import React, { InputHTMLAttributes, useState } from 'react';
 import config from '../../server/config';
 import { FaArrowRight } from 'react-icons/fa';
 import Modal from '../components/Modal';
+import { surpriseOptions } from '../utils/data';
 
 type Props = {};
 
@@ -11,19 +12,6 @@ const DALLE = (props: Props) => {
   const [error, setError] = useState<string>('');
   const [selectedImage, setSelectedImage] = useState<string>('');
   const [modalOpen, setModalOpen] = useState<any>(false);
-
-  const surpriseOptions = [
-    'A Beautiful Sunset over a forest fire',
-    'A thing from your nightmares',
-    'the inevitable end of an era',
-    'the feeling of doom before a rainy day',
-    'terrible cramps in your kneecaps',
-    'the feeling of being watched',
-    'constant and persistant constipation',
-    'the woes of womanhood',
-    'chasing the dragon',
-    'Goliath beats David',
-  ];
 
   const surpriseMe = () => {
     setImages(null);
@@ -115,7 +103,7 @@ const DALLE = (props: Props) => {
                 src={img.url}
                 key={`image-key-${index}`}
                 alt={`Generated Image of ${value}`}
-                className="m-5 rounded-md shadow-lg min-w-[256px] max-w-[33%] max-h-[1024px]  flex-grow"
+                className="m-5 rounded-md shadow-lg min-w-[256px] max-w-[1024px] max-h-[1024px]  flex-grow"
               />
             ))}
           </section>

@@ -1,9 +1,20 @@
 import React from 'react';
 
-type Props = {};
+type CodeDisplayProps = {
+  code: string;
+};
 
-const CodeDisplay = (props: Props) => {
-  return <div className="code-display">CodeDisplay</div>;
+const CodeDisplay = ({ code }: CodeDisplayProps) => {
+  return (
+    <div className="code-display">
+      <div className="buttons">
+        <div className="button first"></div>
+        <div className="button middle"></div>
+        <div className="button last"></div>
+      </div>
+      <div className="code-output">{code}</div>
+    </div>
+  );
 };
 
 export default CodeDisplay;

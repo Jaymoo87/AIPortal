@@ -2,7 +2,7 @@ import { Router } from 'express';
 
 import * as fs from 'fs';
 import * as multer from 'multer';
-import openai, { Configuration, OpenAIApi } from 'openai';
+import { Configuration, OpenAIApi } from 'openai';
 
 import config from '../../config';
 
